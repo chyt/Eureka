@@ -1900,7 +1900,7 @@ public func +=< C : CollectionType where C.Generator.Element == Section>(inout l
 *  Protocol for cells that contain a UITextField
 */
 public protocol TextFieldCell {
-    var textField : UITextField { get }
+    var textField : FieldCellTextField { get }
 }
 
 /**
