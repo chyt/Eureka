@@ -101,10 +101,49 @@ extension String: InputTypeInitiable {
 }
 extension NSURL: InputTypeInitiable {}
 
+public class FieldCellTextField : UITextField {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.borderStyle = UITextBorderStyle.Line
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.blackColor().CGColor
+        self.layer.cornerRadius = 6.0
+        self.backgroundColor = UIColor.whiteColor()
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    let padding = UIEdgeInsets(top: 4, left: 6, bottom: 4, right: 6);
+    
+    public override func textRectForBounds(bounds: CGRect) -> CGRect {
+        return self.newBounds(bounds)
+    }
+    
+    public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+        return self.newBounds(bounds)
+    }
+    
+    public override func editingRectForBounds(bounds: CGRect) -> CGRect {
+        return self.newBounds(bounds)
+    }
+    
+    private func newBounds(bounds: CGRect) -> CGRect {
+        var newBounds = bounds
+        newBounds.origin.x += padding.left
+        newBounds.origin.y += padding.top
+        newBounds.size.height -= padding.top + padding.bottom
+        newBounds.size.width -= padding.left + padding.right
+        return newBounds
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 public class _FieldCell<T where T: Equatable, T: InputTypeInitiable> : Cell<T>, UITextFieldDelegate, TextFieldCell {
-    lazy public var textField : UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
+    lazy public var textField : FieldCellTextField = {
+        let textField = FieldCellTextField()
+        
         return textField
     }()
     

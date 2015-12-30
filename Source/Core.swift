@@ -2431,6 +2431,7 @@ public class FormViewController : UIViewController, FormViewControllerProtocol {
         if tableView == nil {
             tableView = UITableView(frame: view.bounds, style: tableViewStyle)
             tableView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth.union(.FlexibleHeight)
+            tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
         }
         if tableView?.superview == nil {
             view.addSubview(tableView!)
