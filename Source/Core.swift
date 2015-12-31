@@ -2680,6 +2680,12 @@ extension FormViewController : UITableViewDataSource {
     public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return form[section].footer?.title
     }
+    
+    public func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.blueColor()
+        header.textLabel?.text = header.textLabel?.text?.capitalizedString
+    }
 }
 
 extension FormViewController : FormDelegate {
