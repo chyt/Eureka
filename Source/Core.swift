@@ -2432,6 +2432,7 @@ public class FormViewController : UIViewController, FormViewControllerProtocol {
             tableView = UITableView(frame: view.bounds, style: tableViewStyle)
             tableView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth.union(.FlexibleHeight)
             tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
+            tableView?.backgroundColor = UIColor.whiteColor()
         }
         if tableView?.superview == nil {
             view.addSubview(tableView!)

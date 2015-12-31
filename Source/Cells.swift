@@ -229,7 +229,7 @@ public class _FieldCell<T where T: Equatable, T: InputTypeInitiable> : Cell<T>, 
         contentView.removeConstraints(dynamicConstraints)
         dynamicConstraints = []
         var views : [String: AnyObject] =  ["textField": textField]
-        dynamicConstraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-4-[textField]-4-|", options: .AlignAllBaseline, metrics: nil, views: ["textField": textField])
+        dynamicConstraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[textField]-8-|", options: .AlignAllBaseline, metrics: nil, views: ["textField": textField])
         
         if let label = titleLabel, let text = label.text where !text.isEmpty {
                 dynamicConstraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-11-[titleLabel]-11-|", options: .AlignAllBaseline, metrics: nil, views: ["titleLabel": label])
